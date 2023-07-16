@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Web Page's Title</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" defer="true"></script>
+</head>
+<!--Some general notes: basic template looks like it could do:
+Hero (my name, title, image on right) Link: can take to about/projects/contact
+  Probably About
+
+
+-->
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h3 class="nav-homelink"><<span>Michael </span>/></h3>
+      <div class="nav-righthalf">
+        <ul class="navlinks">
+          <a href="index.html#Home"></a><li class="navlink">
+            <span class="navlink-num">.01  </span>Home</li></a>
+          <a href="index.html#About"><li class="navlink">
+            <span class="navlink-num">.02  </span>About</li></a>
+          <a href="index.html#Projects"><li class="navlink">
+            <span class="navlink-num">.03  </span>Projects</li></a>
+          <a href="index.html#Contact"><li class="navlink">
+            <span class="navlink-num">.04  </span>Contact</li></a>
+        </ul>
+        <ul class="iconlinks">
+          <li class="iconlink"><a>
+            <img class="svg-icon" src="images/icons/linkedin-icon.svg"></a></li>
+          <li class="iconlink"><a>
+            <img class="svg-icon" src="images/icons/github-icon.svg"></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <main id="Home">
+    <section class="Hero">
+      <div class="hero-text">
+        <div class="hero-text-1">
+          <h3>Hi, I'm</h3>
+        </div>
+        <h2 class="hero-text-2 big-heading">Michael Griffin</h2>
+        <h2 class="hero-text-3 big-heading">A Web Developer</h2>
+        <p class="hero-text-4">I'm studying to be a software engineer at Rithm School,
+          where I'll be making modern websites
+          while learning React, TypeScript, Flask, and more.
+        </p>
+        <a href="index.html#Projects"><div class="hero-text-5">See my Projects</div></a>
+      </div>
+      <div class="hero-image">
+        <img class="profile-pic" src="images/myphoto.jpg">
+      </div>
+    </section>
+
+
+    <h2 id="About" class="numbered-heading">
+      <span class="number-label">01. </span> <!--font-mono-->
+      <span class="heading-title">About</span>
+      <hr class="heading-line">
+    </h2>
+    <section class="About">
+      <!--About Section: Short bio. Photo if I had a photo. Arlaine put her experience
+      on the right which is a nice touch. Can have a simple summary:
+      (prospective) internship at end of Rithm on NumbersAPI
+      Postdoctoral Researcher - Memory Lab CMU
+      Graduate Student - University of Illinois
+
+      Possible: Technologies used (icons over list. Scroll perhaps?)
+      -->
+
+
+      <div class="about-main">
+        <div class="about-bio">
+          <p>I'm studying to be a full-stack software engineer, and have a background
+            in Psychology, studying memory in particular. My interest in software
+            development first came about while a graduate student at the University
+            of Illinois, where I studied how individaul differences in short-term memory
+            might lead to better long-term learning. I was fascinated with how under
+            time pressure or distraction, people could still (usually) develop successful
+            strategies to learn the items and associations we bombarded them with.
+            <br><br>
+            I also found that I enjoyed programming experiments a bit more than
+            wrangling the sleep-deprived undergraduates who participated in them.
+            When Covid started, I began to learn how to build these experiments
+            online using JavaScript, and am now branching out to study web development
+            full-time.
+            <br><br>
+            Soon, I will graduate from a 16-week, full-stack software engineering
+            program at Rithm School. There, I'll have the pleasure of learning from
+            highly-experienced instructors, and (hopefully) become a more thoughtful and
+            product software engineer. I am currently looking for job opportunities,
+            and am excited to see what lies ahead. </p>
+            <a id="resume-link" href="mgriffin_resume.pdf" target="_blank">2023 Resume</a>
+        </div>
+
+        <div class="about-exp">
+          <div class="exp-box">
+            <p class="years">2023</p>
+            <h6 class="exp-title">Full-Stack Software Engineer Intern</h6>
+            <p class="exp-desc">Will work at NumbersAPI?</p>
+          </div>
+          <div class="exp-box">
+            <p class="years">2020-2023</p>
+            <h6 class="exp-title">Postdoctoral Researcher</h6>
+            <p class="exp-desc">Developed and ran experiments in the memory lab at
+              Carnegie Mellon University
+            </p>
+          </div>
+          <div class="exp-box">
+            <p class="years">2015-2019</p>
+            <h6 class="exp-title">Instructor for Intro Psych</h6>
+            <p class="exp-desc">While a graduate student, taught Introduction to
+              Psychology for five semesters
+            </p>
+          </div>
+        </div>
+      </div> <!--about-main-->
+    </section>
+
+
+
+    <h2 id="Projects" class="numbered-heading">
+      <span class="number-label">02. </span>
+      <span class="heading-title">Projects</span>
+      <hr class="heading-line">
+    </h2>
+    <section class="Projects">
+      <!--image overlays removed on mouseover in JS.-->
+      <div class="project-container-odd">
+        <div class="project-image-container image-overlay">
+          <a class="project-image-container"
+          href="https://github.com/michael-griffin/Sorting-Visualizer" target="_blank">
+            <img class="project-image" src="images/sorting-visualizer.png">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <div class="project-header">
+            <p class="project-overline">Featured Project</p>
+            <h3 class="project-title">Sorting Visualizer</h3>
+          </div>
+
+          <p class="project-description">
+            A visualization tool for common sorting algorithms.
+            <br><br>
+            Built to wrap my head around some of the more complex ones like
+            merge and heap sort, and get some hands on practice with React.
+          </p>
+          <ul class="project-tech-list">
+            <li>React</li>
+            <li>GitHub Pages</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/michael-griffin/Sorting-Visualizer" target="_blank">
+              <img class="svg-icon" src="images/icons/github-icon.svg"></a>
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-container-even">
+        <div class="project-image-container image-overlay">
+          <a class="project-image-container"
+          href="https://github.com/michael-griffin/chess-site" target="_blank">
+            <img class="project-image" src="images/chess-inprogress.png">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <div class="project-header">
+            <p class="project-overline">Featured Project</p>
+            <h3 class="project-title">Practice Chess</h3>
+          </div>
+
+          <p class="project-description">
+            An in progress project to play and practice chess. Solve puzzles,
+            play Solo Chess, practice openings, or even (gasp), play against another
+            person.
+            <br><br>
+            Currently the pieces move and that's about it. Also, the pieces are
+            only rooks.
+          </p>
+          <ul class="project-tech-list">
+            <li>JavaScript</li>
+            <li>HTML/CSS</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/michael-griffin/chess-site" target="_blank">
+              <img class="svg-icon" src="images/icons/github-icon.svg"></a>
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="project-container-odd">
+        <div class="project-image-container image-overlay">
+          <a class="project-image-container"
+          href="https://github.com/michael-griffin/" target="_blank">
+            <img class="project-image" src="images/warbler-site.png">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <div class="project-header">
+            <p class="project-overline">Featured Project</p>
+            <h3 class="project-title">Warbler (to be built)</h3>
+          </div>
+
+          <p class="project-description">
+            Or perhaps Strands. A messaging app where you can post messages, reply
+            to others, and follow your favorite bird. Or person?
+            <br><br>
+            <b>Username:</b> guest<br>
+            <b>Password:</b> password
+          </p>
+          <ul class="project-tech-list">
+            <li>React</li>
+            <li>Netlify</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/github-icon.svg"></a>
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-container-even">
+        <div class="project-image-container image-overlay">
+          <a class="project-image-container"
+          href="https://github.com/michael-griffin/" target="_blank">
+            <img class="project-image" src="images/dawid-planeta-whalesite.png">
+          </a>
+        </div>
+
+        <div class="project-content">
+          <div class="project-header">
+            <p class="project-overline">Featured Project</p>
+            <h3 class="project-title">Mystery Project</h3>
+          </div>
+
+          <p class="project-description">
+            A project so mysterious even I don't know what it is. Even so, it will
+            likely need:
+            <br><br>
+            <b>Username:</b> guest<br>
+            <b>Password:</b> password
+          </p>
+          <ul class="project-tech-list">
+            <li>React</li>
+            <li>SQL</li>
+            <li>Express</li>
+            <li>Tailwind</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/github-icon.svg"></a>
+            <a href="https://github.com/michael-griffin/" target="_blank">
+              <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <h2 id="Contact" class="numbered-heading">
+      <span class="number-label">03.</span>
+      <span class="heading-title">Contact</span>
+      <hr class="heading-line">
+    </h2>
+    <section class="Contact">
+      <p class="contact-blurb">
+        Please feel free to contact me via LinkedIn or reach out using the form
+        below.
+      </p>
+      <form class="contact-form" action="https://formspree.io/f/mqkvkrdo" method="post">
+        <div class="contact-name">
+          <input type="text" id="name" name="name" placeholder="Name">
+          <label for="name"></label>
+        </div>
+        <div class="contact-email">
+          <input type="text" id="email" name="email" placeholder="Email">
+          <label for="name"></label>
+        </div>
+        <div class="contact-message">
+          <textarea class="contact-message" id="message" name="message"
+          placeholder="Message Text"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
