@@ -1,6 +1,9 @@
 /*
 Still to do:
 
+Transitions in general: load in/scroll down should have things fade/slide into place.
+One possibility: https://www.react-reveal.com/
+
 For Projects:
 Updating SVGs: to update svg fill color, will have to insert them as svg tags directly
   rather than through img tag.
@@ -96,6 +99,14 @@ main {
 
 
 /*Navbar Styling*/
+.nav-container a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+
+
+
 ul {
   list-style: none;
   padding: 0%;
@@ -108,14 +119,7 @@ ul {
   position: fixed;
   z-index: 10;
 }
-.navbar-hidden {
-  visibility: hidden;
-}
-.navbar-sticky {
-  visibility: visible;
-  background-color: var(--navy-shadow);
-  backdrop-filter: blur(6px);
-}
+
 
 .nav-container {
   height: inherit;
@@ -148,6 +152,16 @@ ul {
   color: var(--slate);
   text-decoration: none;
 }
+
+
+.nav-resume {
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  padding: 8px 18px;
+  color: var(--green);
+  font-size: .95rem;
+}
+
 .iconlinks {
   display: flex;
   justify-content: flex-end;
@@ -160,8 +174,33 @@ ul {
 }
 
 
+/*Navbar animations*/
+.nav-unloaded {
+  opacity: 0;
+}
+.nav-loaded {
+  opacity: 1;
+  transition: opacity 2s;
+}
+.navlink-unloaded {
+  margin-top: -30px;
+}
+.navlink-loaded {
+  margin-top: 0px;
+  transition: margin-top .5s ease-out;
+}
 
-
+.navbar-hidden {
+  visibility: hidden;
+  opacity: .5;
+}
+.navbar-sticky {
+  visibility: visible;
+  background-color: var(--navy-shadow);
+  backdrop-filter: blur(6px);
+  opacity: 1;
+  transition: opacity 1.5s;
+}
 
 /*Hero Styling*/
 .Hero {
@@ -182,7 +221,7 @@ ul {
   height: 300px;
   border-radius: 10%;
 }
-.hero-text {
+.hero-text-container {
   height: 100%;
   width: 55%;
   display: flex;
@@ -227,13 +266,25 @@ ul {
   margin: 0px;
 }
 
+/*Hero animations*/
 
+.hero-unloaded {
+  transform: translateY(15px);
+  opacity: 0;
+}
 
+.hero-loaded {
+  transform: translateY(0px);
+  opacity: 1;
+  transition-property: transform, opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease-out ;
+}
 
 
 /*About styling*/
 .About {
-  height: 90%;
+  height: 100%;
 }
 
 .about-main {
@@ -377,6 +428,7 @@ ul {
   height: inherit;
   width: inherit;
   max-width: 100%;
+  max-height: 100%;
   z-index: 1;
   /*object-fit: contain; defaulting now to stretch...*/
   border-radius: 10px;

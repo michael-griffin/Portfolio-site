@@ -1,3 +1,53 @@
+let navbar = document.querySelector('.navbar');
+let navLinks = document.querySelectorAll('.navlink');
+
+let heroChildren = document.querySelector('.hero-text-container').children;
+[...heroChildren].forEach(child => child.classList.add('hero-unloaded'));
+
+//Handling initial load in:
+
+navbar.classList.add('nav-unloaded');
+
+//Add unloaded tag to navlinks:
+for (link of navLinks){
+  link.classList.add('navlink-unloaded');
+  console.log('got here');
+}
+
+window.addEventListener("load", (event) => {
+  //Navbar
+  console.log("page is fully loaded");
+  navbar.classList.add('nav-loaded');
+  for (let i = 0; i < navLinks.length; i++){
+    let link = navLinks[i];
+    link.classList.add('navlink-loaded');
+    link.style['transition-delay'] = `${i * 100}ms`;
+  }
+
+  setTimeout(() => {
+    navbar.classList.remove('nav-unloaded');
+    for (link of navLinks){
+      link.classList.remove('navlink-unloaded');
+      link.style['transition-delay'] = '0ms';
+    }
+  }, 1000);
+
+
+  //Hero
+  for (let i = 0; i < heroChildren.length; i++){
+    let heroText = heroChildren[i];
+    heroText.style['transition-delay'] = `${600 + i*100}ms`;
+    heroText.classList.add('hero-loaded');
+  }
+  setTimeout(() => {
+    for (heroText of heroChildren){
+      heroText.classList.remove('hero-unloaded');
+      heroText.style['transition-delay'] = '0ms';
+    }
+  }, 1500);
+});
+
+
 
 //Handling Navbar display when scrolling:
 //Goal: Navbar should disappear on scroll bar, and reappear when scrolling up.
@@ -5,7 +55,6 @@
 //One possible additional style is semi-transparency with a blur:
 //backdrop-filter: blur(6px);
 let lastPositionY = 0;
-let navbar = document.querySelector('.navbar');
 
 function scrollHandler(evt) {
   let positionY = window.scrollY;
@@ -46,6 +95,10 @@ function addOverlay(evt){
 }
 
 imgContainers.forEach(container => {
-  container.addEventListener('mouseenter', removeOverlay);
-  container.addEventListener('mouseleave', addOverlay);
+  //Somewhat janky: anchor tags also have image-container class, so we skip these
+  //since then overlays would double up and overlap.
+  if (container.nodeName !== 'A'){
+    container.addEventListener('mouseenter', removeOverlay);
+    container.addEventListener('mouseleave', addOverlay);
+  }
 });

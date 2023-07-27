@@ -16,17 +16,21 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <h3 class="nav-homelink"><<span>Michael </span>/></h3>
+      <a href="index.html#Home"><h3 class="nav-homelink"><<span>Michael </span>/></h3></a>
       <div class="nav-righthalf">
         <ul class="navlinks">
-          <a href="index.html#Home"></a><li class="navlink">
+          <!--
+            <a href="index.html#Home"><li class="navlink">
             <span class="navlink-num">.01  </span>Home</li></a>
-          <a href="index.html#About"><li class="navlink">
-            <span class="navlink-num">.02  </span>About</li></a>
-          <a href="index.html#Projects"><li class="navlink">
-            <span class="navlink-num">.03  </span>Projects</li></a>
-          <a href="index.html#Contact"><li class="navlink">
-            <span class="navlink-num">.04  </span>Contact</li></a>
+          -->
+          <a href="index.html#About" class="navlink"><li>
+            <span class="navlink-num">.01  </span>About</li></a>
+          <a href="index.html#Projects" class="navlink"><li>
+            <span class="navlink-num">.02  </span>Projects</li></a>
+          <a href="index.html#Contact" class="navlink"><li>
+            <span class="navlink-num">.03  </span>Contact</li></a>
+          <a href="mgriffin_resume.pdf" class="navlink"><li class="nav-resume">
+            Resume</li></a>
         </ul>
         <ul class="iconlinks">
           <li class="iconlink"><a>
@@ -35,13 +39,12 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
             <img class="svg-icon" src="images/icons/github-icon.svg"></a></li>
         </ul>
       </div>
-
     </div>
   </nav>
 
-  <main id="Home">
-    <section class="Hero">
-      <div class="hero-text">
+  <main>
+    <section id="Home" class="Hero">
+      <div class="hero-text-container">
         <div class="hero-text-1">
           <h3>Hi, I'm</h3>
         </div>
@@ -80,7 +83,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
           <p>I'm studying to be a full-stack software engineer, and have a background
             in Psychology, studying memory in particular. My interest in software
             development first came about while a graduate student at the University
-            of Illinois, where I studied how individaul differences in short-term memory
+            of Illinois, where I studied how individual differences in short-term memory
             might lead to better long-term learning. I was fascinated with how under
             time pressure or distraction, people could still (usually) develop successful
             strategies to learn the items and associations we bombarded them with.
@@ -136,7 +139,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
         <div class="project-image-container image-overlay">
           <a class="project-image-container"
           href="https://github.com/michael-griffin/Sorting-Visualizer" target="_blank">
-            <img class="project-image" src="images/sorting-visualizer.png">
+          <img class="project-image" src="images/sorting-visualizer.png">
           </a>
         </div>
 
@@ -150,7 +153,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
             A visualization tool for common sorting algorithms.
             <br><br>
             Built to wrap my head around some of the more complex ones like
-            merge and heap sort, and get some hands on practice with React.
+            merge and heap sort, and get some hands on practice with animations.
           </p>
           <ul class="project-tech-list">
             <li>React</li>
@@ -169,7 +172,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
         <div class="project-image-container image-overlay">
           <a class="project-image-container"
           href="https://github.com/michael-griffin/chess-site" target="_blank">
-            <img class="project-image" src="images/chess-inprogress.png">
+          <img class="project-image" src="images/chess-inprogress.png">
           </a>
         </div>
 
@@ -216,8 +219,9 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
           </div>
 
           <p class="project-description">
-            Or perhaps Strands. A messaging app where you can post messages, reply
-            to others, and follow your favorite bird. Or person?
+            To be built at Rithm. A messaging app where you can
+            post messages, reply to others, and follow your favorite bird.
+             Or person?
             <br><br>
             <b>Username:</b> guest<br>
             <b>Password:</b> password
@@ -225,6 +229,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
           <ul class="project-tech-list">
             <li>React</li>
             <li>Netlify</li>
+            <li>Flask</li>
           </ul>
           <div class="project-links">
             <a href="https://github.com/michael-griffin/" target="_blank">
@@ -257,7 +262,7 @@ Hero (my name, title, image on right) Link: can take to about/projects/contact
             <b>Password:</b> password
           </p>
           <ul class="project-tech-list">
-            <li>React</li>
+            <li>NextJS</li>
             <li>SQL</li>
             <li>Express</li>
             <li>Tailwind</li>
