@@ -1,8 +1,12 @@
 /*
+
 Still to do:
-Mobile phone layout!
-  -For projects, could follow seb: Site image, then title (overlap here), then textbox
-drop-shadow(-.5em .5em .25em var(--primary-450));
+General clean up:
+- odd bug with dropdown menu: using JS to toggle display (flex vs none)
+  If one maximizes screen while links are hidden however, they don't reappear.
+  Any way to set an event listener for screen size or something like that?
+
+  possible: window.addEventListener("resize", checkLinks)
 
 Transitions in general: load in/scroll down should have things fade/slide into place.
 One possibility: https://www.react-reveal.com/
@@ -30,95 +34,49 @@ html {
 :root {
   --font-sans: 'Calibre','Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;
   --font-mono: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
-  --nav-height: 100px;
-  --nav-scroll-height: 70px;
+  --nav-height: 70px;
   --headingSize: 2rem;
   --bioSize: 1.15rem;
   --descSize: 1.25rem;
+  --small-width: 600px;
 
-
-
-
-
-
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
-
-  --white: #e6f1ff;
-  --green: #64ffda;
-
-
-
-
-
-
-  /*Una's color scheme*/
-  --khaki: #D2C8AC;
-  --offwhite: #f8f8f2;
-  --beige: #DED4CC;
-  --tan: #C0AB92;
-  --lightrose: #f3e8e5;
-  --peach: #ecd2c5;
-  --peach-bg: #fff6f5;
-  --lightbrown: #9f8a6f;
-  --midbrown: #685844;
+  /* https://una.im/  */
   --gunmetal: #2f3834;
-  --darkgunmetal: #151c19;
-  --darkergunmetal: #0c1410;
-  --teal: #72f1de;
-  --forest: #5d755a;
-  --darkforest: #40533e;
-  --dimgreengray: #464f4e;
-
-
-
-
-
-
-  /*Unused*/
-  /*
-  --navy: #0a192f;
-  --light-navy: #112240;
-  --navy-shadow: rgba(2,12,27,0.7);
-  */
+  --darker-gunmetal: #0c1410;
+  --dark-forest: #40533e;
 
   /*https://www.starmatik.com/azienda/*/
   --gray: #4D4D4C;
   --dark-gray: #252525;
-  --bone-white: #F2F2F2;
+  --white: #F2F2F2;
 
   /*Misc colors*/
   --dark-navy: #020c1b;
   --lightest-navy: #233554;
 
-  --green-tint: rgba(10, 80, 60, 0.5); /*  --green-tint: rgba(100,255,218,0.1); */
+  --green-tint: rgba(10, 80, 60, 0.5);
   --sky-blue: #7dd0ff;
   --light-sky-blue: #9addff;
 
-  --text-color:var(--bone-white);
+  /*Assigning colors to parts of page*/
+  --text-color:var(--white);
+  --highlight-color:var(--white);
   --bold-text-color:var(--sky-blue);
   --header-color: var(--sky-blue);
-  --highlight-color:var(--white);
-  --submit-button-color: var(--dark-navy);
-  --button-hover-color:var(--lightest-navy);
+
   --main-background: var(--dark-gray);
   --text-background: var(--gray);
-  --navbar-background: var(--darkergunmetal);
+  --navbar-background: var(--darker-gunmetal);
+  --contact-background: var(--gunmetal);
+  --contact-background-highlight: var(--dark-forest);
+
+  --submit-button-color: var(--dark-navy);
+  --button-hover-color:var(--lightest-navy);
   --icon-background: var(--light-sky-blue);
+
   --heading-line-color: var(--khaki);
   --description-line-color: var(--beige);
   --project-content-line-color: var(--forest);
-  --contact-background: var(--gunmetal);
-  --contact-background-highlight: var(--darkforest);
-  /*
-  --text-color:var(--slate);
-  --bold-text-color: var(--lightest-slate);
-  --highlight-color:var(--green);
-  --main-background: var(--navy);
-  --text-background: var(--lightest-navy);
-  --navbar-background: var(--dark-navy);
-  */
 }
 
 body {
@@ -137,8 +95,12 @@ main {
   background-color: var(--icon-background);
   border-radius: 3px;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/*for Section labels*/
+/* Section labels*/
 .numbered-heading {
   margin: 0px;
   margin-left: 10%;
@@ -159,7 +121,7 @@ main {
   display: inline-block;
   width: 20%;
   height: 1px;
-  background-color: var(--heading-line-color); /*lightest-navy*/
+  background-color: var(--heading-line-color);
   border: none;
 }
 
@@ -172,34 +134,27 @@ main {
   text-decoration: inherit;
   color: inherit;
 }
-
-
-
-
 ul {
   list-style: none;
   padding: 0%;
 }
 
 .navbar {
-  height: var(--nav-scroll-height);/*10%;*/
+  background-color: var(--navbar-background); /*background also in .navbar-sticky*/
+  height: var(--nav-height);
   width: 100%;
   position: fixed;
   z-index: 10;
-}
-
-
-.nav-container {
-  background-color: var(--navbar-background); /*background also in .navbar-sticky*/
-  height: inherit;
   display: flex;
   justify-content: space-between;
-  margin: 0px 30px 0px 30px;
+  margin: 0px;
 }
 
 .nav-homelink {
+  text-decoration: none;
   display: inline-block;
-  align-self: center;
+  color: var(--text-color);
+  margin-left: 30px;
 }
 
 .nav-righthalf{
@@ -222,7 +177,6 @@ ul {
   text-decoration: none;
 }
 .navlink:hover {
-  color: var(--highlight-color);
   font-weight: 600;
 }
 
@@ -243,11 +197,68 @@ ul {
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
+  margin-right: 20px;
+}
+
+.toggle-links-container {
+  align-self: center;
+  margin-right: 30px;
+}
+.toggle-links-icon {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-bar {
+  display: block;
+  height: 3px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+.toggle-links-container {
+  display: none;
+}
+@media (max-width: 600px){
+  /*Hide navlinks by default and show hamburger menu
+    When menu is clicked:
+      Make navlinks visible
+      Set position to fixed
+      Flex direction bottom
+  */
+  .toggle-links-container {
+    display: block;
+  }
+
+  /* .navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    font-family: var(--font-mono);
+  } */
+  .navlinks {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--navbar-background);
+    margin: 0px;
+    padding: 20px;
+    width: 100%;
+  }
 }
 
 
 
-/*Navbar animations*/
+/*Navbar scroll up animations*/
 .nav-unloaded {
   opacity: 0;
 }
@@ -274,6 +285,9 @@ ul {
   opacity: 1;
   transition: opacity 1.5s;
 }
+
+
+
 
 /*Hero Styling*/
 .Hero {
@@ -334,20 +348,19 @@ ul {
   padding: 10px 20px;
   display: inline-block;
 }
-/*previously, offset border growth here with margin 1 > 0.
-outline a more elegant solution*/
+
+/*previously, offset border growth here with margin 1 > 0. Now using outline. */
 .hero-text-5:hover {
   outline: 2px solid var(--highlight-color);
   background-color: var(--button-hover-color);
 }
 
-/*Hero animations*/
 
+/*Hero animations*/
 .hero-unloaded {
   transform: translateY(15px);
   opacity: 0;
 }
-
 .hero-loaded {
   transform: translateY(0px);
   opacity: 1;
@@ -619,6 +632,51 @@ outline a more elegant solution*/
 
 
 
+@media (max-width: 600px){
+  .Projects {
+    height: 330%; /*4 projects, 50% for each*/
+  }
+
+/*Alternate image/content, content/image*/
+  .project-container-odd, .project-container-even {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: 340px 340px; /*repeat 1fr didn't work as expected here*/
+    height: 680px;
+  }
+  .project-container-odd .project-content {
+    grid-column: 6 / -1;
+    grid-row: 2 / 3;
+    align-items: end;
+  }
+  .project-container-odd .project-image-container {
+    grid-column: 1 / 25;
+    grid-row: 1 / 2;
+  }
+  .project-container-even .project-content {
+    grid-column: 1 / 19;
+    grid-row: 2 / 3;
+    align-items: start;
+  }
+  .project-container-even .project-image-container {
+    grid-column: 1 / 25;
+    grid-row: 1;
+  }
+
+  .project-image-container {
+    height: auto;
+  }
+  .project-content {
+    height: auto;
+  }
+  .project-header {
+    background-color: var(--main-background);
+
+    z-index: 20;
+  }
+}
+
 
 /*Other Projects Styling*/
 
@@ -663,14 +721,14 @@ outline a more elegant solution*/
 
 @media (max-width: 600px){
   .other-projects-header {
-    margin-bottom: -30px;
+    margin-bottom: -150px;
   }
 
   .Other-Projects {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 140%;
+    height: 150%;
     width: 100%;
     justify-content: center;
     align-items: center;

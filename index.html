@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Michael Griffin</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css">
   <script src="index.js" defer="true"></script>
 </head>
@@ -11,32 +12,50 @@
 
 <body>
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html#Home"><h3 class="nav-homelink"><<span>Michael </span>/></h3></a>
-      <div class="nav-righthalf">
-        <ul class="navlinks">
-          <!--
-            <a href="index.html#Home"><li class="navlink">
-            <span class="navlink-num">.01  </span>Home</li></a>
-          -->
-          <a href="index.html#About" class="navlink"><li>
-            <span class="navlink-num">.01  </span>About</li></a>
-          <a href="index.html#Projects" class="navlink"><li>
-            <span class="navlink-num">.02  </span>Projects</li></a>
-          <a href="index.html#Contact" class="navlink"><li>
-            <span class="navlink-num">.03  </span>Contact</li></a>
-          <a href="mgriffin_resume.pdf" class="navlink"><li class="nav-resume">
-            Resume</li></a>
-        </ul>
-        <ul class="iconlinks">
-          <li class="iconlink"><a>
-            <img class="svg-icon" src="images/icons/linkedin-icon.svg"></a></li>
-          <li class="iconlink"><a>
-            <img class="svg-icon" src="images/icons/github-icon.svg"></a></li>
-        </ul>
+    <a href="index.html#Home"><h3 class="nav-homelink"><<span>Michael </span>/></h3></a>
+
+    <div class="nav-righthalf">
+      <ul class="navlinks">
+
+        <a href="index.html#About" class="navlink"><li>
+          <span class="navlink-num">.01  </span>About</li></a>
+        <a href="index.html#Projects" class="navlink"><li>
+          <span class="navlink-num">.02  </span>Projects</li></a>
+        <a href="index.html#Contact" class="navlink"><li>
+          <span class="navlink-num">.03  </span>Contact</li></a>
+        <a href="mgriffin_resume.pdf" class="navlink"><li class="nav-resume">
+          Resume</li></a>
+      </ul>
+
+      <ul class="iconlinks">
+        <li class="iconlink"><a>
+          <img class="svg-icon" src="images/icons/linkedin-icon.svg"></a></li>
+        <li class="iconlink"><a>
+          <img class="svg-icon" src="images/icons/github-icon.svg"></a></li>
+      </ul>
+
+      <!--Appears when sreen size shrinks, opens dropdown for links.-->
+      <div class="toggle-links-container">
+        <a href="#" class="toggle-links-icon">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
       </div>
     </div>
   </nav>
+
+  <!-- <ul class="navlinks">
+
+    <a href="index.html#About" class="navlink"><li>
+      <span class="navlink-num">.01  </span>About</li></a>
+    <a href="index.html#Projects" class="navlink"><li>
+      <span class="navlink-num">.02  </span>Projects</li></a>
+    <a href="index.html#Contact" class="navlink"><li>
+      <span class="navlink-num">.03  </span>Contact</li></a>
+    <a href="mgriffin_resume.pdf" class="navlink"><li class="nav-resume">
+      Resume</li></a>
+  </ul> -->
 
   <main>
     <section id="Home" class="Hero">
@@ -67,14 +86,12 @@
       <!--About Section:
       Bio,
       Simple summary for experience.
-        (prospective) internship at end of Rithm on NumbersAPI
+        (prospective) internship at end of Rithm
         Postdoctoral Researcher - Memory Lab CMU
         Graduate Student - University of Illinois
 
       Possible: Technologies used (icons over list)
       -->
-
-
       <div class="about-main">
         <div class="about-bio">
           <p>I'm studying to be a full-stack software engineer and have a background
@@ -125,7 +142,6 @@
     </section>
 
 
-
     <h2 id="Projects" class="numbered-heading">
       <span class="number-label">02. </span>
       <span class="heading-title">Projects</span>
@@ -141,10 +157,9 @@
         </div>
 
         <div class="project-content">
-          <div class="project-header">
 
-            <h3 class="project-title">Sorting Visualizer</h3>
-          </div>
+          <h3 class="project-title">Sorting Visualizer</h3>
+
           <div class="project-description">
             <p class="project-description-text">
               A visualization tool for common sorting algorithms.
@@ -154,6 +169,7 @@
             </p>
             <hr class="description-line">
             <ul class="project-tech-list">
+              <li><em>React</em></li>
               <li><em>JavaScript</em></li>
               <li><em>HTML/CSS</em></li>
             </ul>
@@ -177,9 +193,8 @@
         </div>
 
         <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">Solo Chess</h3>
-          </div>
+
+          <h3 class="project-title">Solo Chess</h3>
 
           <div class="project-description">
             <p class="project-description-text">
@@ -192,6 +207,7 @@
             <hr class="description-line">
             <ul class="project-tech-list">
               <li><em>React</em></li>
+              <li><em>Flask</em></li>
               <li><em>NextJS</em></li>
             </ul>
           </div>
@@ -214,9 +230,9 @@
         </div>
 
         <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">Warbler (to be built)</h3>
-          </div>
+
+          <h3 class="project-title">Warbler (to be built)</h3>
+
           <div class="project-description">
           <p class="project-description-text">
             To be built at Rithm. A messaging app where you can
@@ -228,8 +244,8 @@
           </p>
           <hr class="description-line">
           <ul class="project-tech-list">
-            <li><em>React</em></li>
-            <li><em>Netlify</em></li>
+            <li><em>Bootstrap</em></li>
+            <li><em>jQuery</em></li>
             <li><em>Flask</em></li>
           </ul>
           </div>
@@ -251,9 +267,9 @@
         </div>
 
         <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">Mystery Project</h3>
-          </div>
+
+          <h3 class="project-title">Mystery Project</h3>
+
           <div class="project-description">
             <p class="project-description-text">
               A project so mysterious even I don't know what it is. Even so, it will
@@ -267,7 +283,7 @@
               <li><em>NextJS</em></li>
               <li><em>SQL</em></li>
               <li><em>Express</em></li>
-              <li><em>Bootstrap</em></li>
+              <li><em>Netlify</em></li>
             </ul>
           </div>
           <div class="project-links">
@@ -280,15 +296,18 @@
       </div>
     </section><!--projects-main-->
 
+
     <h2 class="other-projects-header">Other Projects</h2>
     <section class="Other-Projects">
       <div class="project-card">
         <a href="https://michael-griffin.github.io/meme-gen/" target="_blank">
           <img class="project-card-image" src="images/meme-gen.png">
         </a>
-        <p class="project-card-text"><span class="card-text-bold">Project:</span> Meme Generator
+        <p class="project-card-text"><span class="card-text-bold">
+          Project:</span> Meme Generator
         <br>
-        <span class="card-text-bold">Details:</span> Build a simple meme with image and text.</p>
+        <span class="card-text-bold">Details:</span>
+        Build a simple meme with image and text.</p>
         <div class="project-links">
           <a href="https://github.com/michael-griffin/meme-gen" target="_blank">
             <img class="svg-icon" src="images/icons/github-icon.svg"></a>
@@ -296,11 +315,13 @@
             <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
         </div>
       </div>
+
       <div class="project-card">
         <a href="https://michael-griffin.github.io/memory-game/" target="_blank">
           <img class="project-card-image" src="images/memory-game.png">
         </a>
-        <p class="project-card-text"><span class="card-text-bold">Project:</span> Memory Game
+        <p class="project-card-text"><span class="card-text-bold">
+          Project:</span> Memory Game
         <br>
         <span class="card-text-bold">Details:</span> Remember where each color is,
         and match pairs to win.</p>
@@ -311,11 +332,13 @@
             <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
         </div>
       </div>
+
       <div class="project-card">
         <a href="https://github.com/michael-griffin/meme-gen" target="_blank">
           <img class="project-card-image" src="images/Dawid-Planeta-fox.jpg">
         </a>
-        <p class="project-card-text"><span class="card-text-bold">Project:</span> A Smaller Mystery
+        <p class="project-card-text"><span class="card-text-bold">
+          Project:</span> A Smaller Mystery
         <br>
         <span class="card-text-bold">Details:</span> To be built, someday.
         <br><br></p>
@@ -326,7 +349,9 @@
             <img class="svg-icon" src="images/icons/external-link-icon.svg"></a>
         </div>
       </div>
+
     </section>
+
 
     <h2 id="Contact" class="numbered-heading">
       <span class="number-label">03.</span>
@@ -338,6 +363,7 @@
         Please feel free to contact me via LinkedIn or reach out using the form
         below.
       </p>
+
       <form class="contact-form" action="https://formspree.io/f/mqkvkrdo" method="post">
         <div class="contact-name">
           <input type="text" id="name" name="name" placeholder="Name">

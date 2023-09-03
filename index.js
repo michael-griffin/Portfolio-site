@@ -1,5 +1,7 @@
 let navbar = document.querySelector('.navbar');
-let navLinks = document.querySelectorAll('.navlink');
+let navLinkContainer = document.querySelector('.navlinks');
+let navLinkList = document.querySelectorAll('.navlink');
+let toggleLinksIcon = document.querySelector('.toggle-links-icon');
 
 let heroChildren = document.querySelector('.hero-text-container').children;
 [...heroChildren].forEach(child => child.classList.add('hero-unloaded'));
@@ -9,24 +11,23 @@ let heroChildren = document.querySelector('.hero-text-container').children;
 navbar.classList.add('nav-unloaded');
 
 //Add unloaded tag to navlinks:
-for (link of navLinks){
+for (link of navLinkList){
   link.classList.add('navlink-unloaded');
-  console.log('got here');
 }
 
 window.addEventListener("load", (event) => {
   //Navbar
   console.log("page is fully loaded");
   navbar.classList.add('nav-loaded');
-  for (let i = 0; i < navLinks.length; i++){
-    let link = navLinks[i];
+  for (let i = 0; i < navLinkList.length; i++){
+    let link = navLinkList[i];
     link.classList.add('navlink-loaded');
     link.style['transition-delay'] = `${i * 100}ms`;
   }
 
   setTimeout(() => {
     navbar.classList.remove('nav-unloaded');
-    for (link of navLinks){
+    for (link of navLinkList){
       link.classList.remove('navlink-unloaded');
       link.style['transition-delay'] = '0ms';
     }
@@ -47,6 +48,22 @@ window.addEventListener("load", (event) => {
   }, 1500);
 });
 
+
+//Handling Navbar display: responsive design
+//Basic idea: clicking hamburger icon should open dropdown menu
+//Dropdown CSS pre-built in media query, but still need to activate the class
+//with an on click listener
+toggleLinksIcon.addEventListener('click', openDropdown);
+
+function openDropdown(evt){
+  //target navlinks container, switch display.
+  let display = navLinkContainer.style.display;
+  if (display === "none"){
+    navLinkContainer.style.display = 'flex';
+  } else {
+    navLinkContainer.style.display = 'none';
+  }
+}
 
 
 //Handling Navbar display when scrolling:
