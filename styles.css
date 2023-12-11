@@ -635,9 +635,9 @@ ul {
 
 
 @media (max-width: 600px){
-  .Projects {
-    /* height: 330%; 4 projects, 50% for each */
-  }
+  /* .Projects {
+    height: 330%; 4 projects, 50% for each
+  } */
 
 /*Alternate image/content, content/image*/
   .project-container-odd, .project-container-even {
@@ -724,9 +724,9 @@ ul {
 
 
 @media (max-width: 600px){
-  .other-projects-header {
-    /* margin-bottom: -150px; */
-  }
+  /* .other-projects-header {
+    margin-bottom: -150px;
+  } */
 
   .Other-Projects {
     box-sizing: border-box;
@@ -819,6 +819,6 @@ button[type="submit"]:hover {
 }
 
 
-@media (max-width: 600px){
+/* @media (max-width: 600px){
 
-}
+} */
