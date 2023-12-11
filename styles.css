@@ -38,7 +38,11 @@ html {
   --headingSize: 2rem;
   --bioSize: 1.15rem;
   --descSize: 1.25rem;
+
+  /* When screen width drops below small-width, update CSS*/
   --small-width: 600px;
+  --bioSmall: 1rem;
+  --descSmall: 1.05rem;
 
   /* https://una.im/  */
   --gunmetal: #2f3834;
@@ -373,7 +377,7 @@ ul {
 
 @media (max-width: 600px){
   .Hero {
-    height: 100%;
+    height: 140%;
     display: flex; /*hero-image, hero-text*/
     flex-direction: column;
     justify-content: flex-start;
@@ -447,7 +451,7 @@ ul {
   }
 
   .about-main {
-    height: 100%;
+    height: 150%;
     width: 100%;
     display: flex; /*hero-image, hero-text*/
     flex-direction: column; /*about-bio, then below .about-exp*/
@@ -456,13 +460,13 @@ ul {
     gap: 0%;
   }
   .about-bio {
-    height: 65%;
+    max-height: 65%;
     width: 85%;
     margin-left: 10%;
-    font-size: var(--bioSize);
+    font-size: var(--bioSmall);
   }
   .about-exp {
-    height: 35%;
+    max-height: 35%;
     width: 85%;
     margin-left: 10%;
     margin-right: 0%;

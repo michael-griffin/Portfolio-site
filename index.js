@@ -65,6 +65,25 @@ function openDropdown(evt){
   }
 }
 
+//Continue handling navbar:
+//On viewport/window resize, should check overall width. If > 600px, then
+//show links. If < 600px, hide links.
+
+window.addEventListener('resize', handleLinksDisplay)
+
+function handleLinksDisplay(evt){
+  console.log('window resized, inner width is: ', window.innerWidth);
+  let display = navLinkContainer.style.display;
+
+  let width;
+  if (window.innerWidth > 600){
+    navLinkContainer.style.display = 'flex';
+  } else {
+    navLinkContainer.style.display = 'none';
+  }
+}
+
+
 
 //Handling Navbar display when scrolling:
 //Goal: Navbar should disappear on scroll bar, and reappear when scrolling up.
