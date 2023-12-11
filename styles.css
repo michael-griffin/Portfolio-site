@@ -295,10 +295,11 @@ ul {
 
 /*Hero Styling*/
 .Hero {
-  height: 100%;
   display: flex; /*hero-image, hero-text*/
   justify-content: space-evenly;
   align-items: center;
+  padding-top: 10%;
+  padding-bottom: 15%;
 }
 .hero-image {
   width: 40%;
@@ -377,11 +378,12 @@ ul {
 
 @media (max-width: 600px){
   .Hero {
-    height: 140%;
     display: flex; /*hero-image, hero-text*/
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 5%; /*down from 10%*/
+    padding-bottom: 25%; /*up from 15%*/
   }
   .hero-image {
     width: 85%;
@@ -405,11 +407,10 @@ ul {
 
 /*About styling*/
 .About {
-  height: 100%;
+  padding-bottom: 15%;
 }
 
 .about-main {
-  height: 100%;
   width: 100%;
   display: flex; /*hero-image, hero-text*/
   justify-content: space-evenly;
@@ -417,7 +418,6 @@ ul {
   align-items: center;
 }
 .about-bio {
-  height: 100%;
   width: 65%;
   margin-left: 10%;
   font-size: var(--bioSize);
@@ -427,7 +427,6 @@ ul {
 }
 
 .about-exp {
-  height: 100%;
   width: 35%;
   margin-right: 5%;
 }
@@ -447,11 +446,10 @@ ul {
 
 @media (max-width: 600px) {
   .About {
-    height: 130%;
+    padding-bottom: 25%; /*up from 15%*/
   }
 
   .about-main {
-    height: 150%;
     width: 100%;
     display: flex; /*hero-image, hero-text*/
     flex-direction: column; /*about-bio, then below .about-exp*/
@@ -460,13 +458,11 @@ ul {
     gap: 0%;
   }
   .about-bio {
-    max-height: 65%;
     width: 85%;
     margin-left: 10%;
     font-size: var(--bioSmall);
   }
   .about-exp {
-    max-height: 35%;
     width: 85%;
     margin-left: 10%;
     margin-right: 0%;
@@ -488,7 +484,7 @@ ul {
 
 
 .Projects {
-  height: 280%; /*4 projects, 50% for each*/
+  /* height: 280%; 4 projects, 50% for each */
   margin-top: 30px;
   margin-bottom: 125px; /*Contact was overlapping, this is the janky fix*/
   margin-left: 10%;
@@ -517,6 +513,8 @@ ul {
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: 1fr;
   height: 340px;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 .project-container-odd .project-content {
   grid-column: 14 / -1;
@@ -638,7 +636,7 @@ ul {
 
 @media (max-width: 600px){
   .Projects {
-    height: 330%; /*4 projects, 50% for each*/
+    /* height: 330%; 4 projects, 50% for each */
   }
 
 /*Alternate image/content, content/image*/
@@ -687,17 +685,19 @@ ul {
 .other-projects-header {
   text-align: center;
   margin-top: 0px;
-  margin-bottom: -30px;
+  margin-bottom: 50px;
+  /* margin-bottom: -30px; */
   color: var(--bold-text-color);
   font-size: 1.9rem;
 }
 .Other-Projects {
   box-sizing: border-box;
   display: flex;
-  height: 80%;
+  /* height: 80%; */
   width: 100%;
   justify-content: center;
   gap: 4%;
+  padding-bottom: 15%;
 }
 
 .project-card {
@@ -725,18 +725,22 @@ ul {
 
 @media (max-width: 600px){
   .other-projects-header {
-    margin-bottom: -150px;
+    /* margin-bottom: -150px; */
   }
 
   .Other-Projects {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 150%;
+    /* height: 150%; */
     width: 100%;
     justify-content: center;
     align-items: center;
     gap: 4%;
+  }
+
+  .project-card {
+    margin-bottom: 60px;
   }
 }
 
