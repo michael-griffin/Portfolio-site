@@ -1,36 +1,8 @@
-/*
-
-Still to do:
-General clean up:
-- odd bug with dropdown menu: using JS to toggle display (flex vs none)
-  If one maximizes screen while links are hidden however, they don't reappear.
-  Any way to set an event listener for screen size or something like that?
-
-  possible: window.addEventListener("resize", checkLinks)
-
-Transitions in general: load in/scroll down should have things fade/slide into place.
-One possibility: https://www.react-reveal.com/
-
-For Projects:
-Updating SVGs: to update svg fill color, will have to insert them as svg tags directly
-  rather than through img tag.
-Currently, can't figure out how to animate a gradual transition for the project image
-  overlay fading out. Solution to that in general is hacky.
-Add Section - More Projects: could add a scroll through list at the bottom.
-  Would have the simple tutorials, etch a sketch, calculator, etc.
-
-Responsive design:
-https://www.rithmschool.com/courses/intermediate-css-bootstrap/lessons/responsive-design/
-
-Basics: use media queries/max width arg to add additional CSS
-
-*/
-
-
 
 html {
   scroll-behavior: smooth;
 }
+
 :root {
   --font-sans: 'Calibre','Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;
   --font-mono: 'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;
@@ -40,7 +12,14 @@ html {
   --descSize: 1.25rem;
 
   /* When screen width drops below small-width, update CSS*/
+
+  /*
+  Media queries do not appear to allow variables. The below is what
+  I'm using however.
   --small-width: 600px;
+  --small-nav-width: 750px;
+  */
+
   --bioSmall: 1rem;
   --descSmall: 1.05rem;
 
@@ -227,7 +206,7 @@ ul {
 .toggle-links-container {
   display: none;
 }
-@media (max-width: 600px){
+@media (max-width: 750px){
   /*Hide navlinks by default and show hamburger menu
     When menu is clicked:
       Make navlinks visible

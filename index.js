@@ -1,3 +1,5 @@
+const SMALL_NAV = 750;
+
 let navbar = document.querySelector('.navbar');
 let navLinkContainer = document.querySelector('.navlinks');
 let navLinkList = document.querySelectorAll('.navlink');
@@ -76,7 +78,7 @@ function handleLinksDisplay(evt){
   let display = navLinkContainer.style.display;
 
   let width;
-  if (window.innerWidth > 600){
+  if (window.innerWidth > SMALL_NAV){
     navLinkContainer.style.display = 'flex';
   } else {
     navLinkContainer.style.display = 'none';
