@@ -576,36 +576,22 @@ ul {
 /*project-image styling*/
 .project-image-container {
   width: 100%;
-  height: inherit;
   position: relative; /*need this for the below overlay to work. rgba(21, 158, 94, 0.3)*/
   filter: drop-shadow(0px 5px  10px rgba(14, 108, 64, 0.3));
+  display: flex;
+  align-items: center;
 }
 .project-image {
-  /*
-  height: inherit;
-  width: inherit;
-  */
-  height: auto;
-  width: auto;
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  z-index: 1;
-  /*object-fit: contain; defaulting now to stretch...*/
+  width: 100%;
   border-radius: 10px;
+  z-index: 1;
 }
 
-/*Below is added/removed on mouseenter/mouseleave with JS*/
-.image-overlay::before {
-  content: " ";
-  z-index: 2;
-  display: block;
+.image-overlay {
   position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
+  z-index: 10;
+  left:0;
+  right:0;
   background-color: var(--green-tint);
   border-radius: 10px;
 }
@@ -801,3 +787,7 @@ button[type="submit"]:hover {
 /* @media (max-width: 600px){
 
 } */
+
+.hide {
+  display: none;
+}

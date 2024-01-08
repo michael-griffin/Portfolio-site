@@ -48,43 +48,11 @@ window.addEventListener("load", (event) => {
       heroText.style['transition-delay'] = '0ms';
     }
   }, 1500);
+
+
+  //Projects
+  handleOverlayResize(); //run once at beginning to set overlay sizes.
 });
-
-
-//Handling Navbar display: responsive design
-//Basic idea: clicking hamburger icon should open dropdown menu
-//Dropdown CSS pre-built in media query, but still need to activate the class
-//with an on click listener
-toggleLinksIcon.addEventListener('click', openDropdown);
-
-function openDropdown(evt){
-  //target navlinks container, switch display.
-  let display = navLinkContainer.style.display;
-  if (display === "none"){
-    navLinkContainer.style.display = 'flex';
-  } else {
-    navLinkContainer.style.display = 'none';
-  }
-}
-
-//Continue handling navbar:
-//On viewport/window resize, should check overall width. If > 600px, then
-//show links. If < 600px, hide links.
-
-window.addEventListener('resize', handleLinksDisplay)
-
-function handleLinksDisplay(evt){
-  console.log('window resized, inner width is: ', window.innerWidth);
-  let display = navLinkContainer.style.display;
-
-  let width;
-  if (window.innerWidth > SMALL_NAV){
-    navLinkContainer.style.display = 'flex';
-  } else {
-    navLinkContainer.style.display = 'none';
-  }
-}
-
 
 
 //Handling Navbar display when scrolling:
@@ -114,29 +82,108 @@ function scrollHandler(evt) {
 window.addEventListener('scroll', scrollHandler);
 
 
-//Below handles image overlay with javascript.
-//adds image overlay by default. Removes when mouse enters (to highlight site image)
-//Then readds when mouse leaves.
-//https://javascript.info/mousemove-mouseover-mouseout-mouseenter-mouseleave
 
-let imgContainers = document.querySelectorAll('.project-image-container');
-imgContainers = [...imgContainers];
+//Handling Navbar display: responsive design
+//Basic idea: clicking hamburger icon should open dropdown menu
+//Dropdown CSS pre-built in media query, but still need to activate the class
+//with an on click listener
+toggleLinksIcon.addEventListener('click', openDropdown);
 
+function openDropdown(evt){
+  //target navlinks container, switch display.
+  let display = navLinkContainer.style.display;
+  if (display === "none"){
+    navLinkContainer.style.display = 'flex';
+  } else {
+    navLinkContainer.style.display = 'none';
+  }
+}
+
+
+
+window.addEventListener('resize', resizeDisplay)
+
+function resizeDisplay(evt){
+  //console.log('window resized, inner width is: ', window.innerWidth);
+  handleLinksDisplay();
+  handleOverlayResize();
+}
+
+
+//Continue handling navbar:
+//On viewport/window resize, should check overall width. If > 600px, then
+//show links. If < 600px, hide links.
+function handleLinksDisplay(){
+  let display = navLinkContainer.style.display;
+
+  if (window.innerWidth > SMALL_NAV){
+    navLinkContainer.style.display = 'flex';
+  } else {
+    navLinkContainer.style.display = 'none';
+  }
+}
+
+
+/*Updates image overlays in projects section
+Working with client/offsetHeight led to some odd 1-2 pixel inaccuracies.
+The current workaround is to find the largest height of the images, and treat
+that as the standard. Seems to work. */
+function handleOverlayResize(){
+  let projectImages = [...document.querySelectorAll(".project-image")];
+  let imageOverlays = [...document.querySelectorAll(".image-overlay")];
+
+  let maxImageHeight = projectImages.reduce((currMax, el) => {
+    return Math.max(currMax, el.offsetHeight);
+  }, 0);
+
+  for (let currOverlay of imageOverlays){
+    currOverlay.style.height = `${maxImageHeight}px`;
+  }
+
+  // for (let i = 0; i < projectImages.length; i++){
+  //   let currImage = projectImages[i];
+  //   let currOverlay = imageOverlays[i];
+
+  //   console.log('current image is: ', currImage);
+  //   console.log('height is: ', currImage.offsetHeight);
+  //   currOverlay.style.height = `${currImage.offsetHeight}px`;
+  // }
+}
+
+
+
+
+
+
+
+// Below handles image overlay with javascript.
+// Removes when mouse enters (to highlight site image)
+// Then adds back when mouse leaves.
+// https://javascript.info/mousemove-mouseover-mouseout-mouseenter-mouseleave
+
+let imageContainers = [...document.querySelectorAll(".project-image-container")];
 
 function removeOverlay(evt){
-  evt.target.classList.remove('image-overlay');
-  console.log(evt.target);
+  //console.log(evt.target);
+  let imageOverlay = evt.target.lastElementChild;
+  imageOverlay.classList.add('hide');
 }
 function addOverlay(evt){
-  evt.target.classList.add('image-overlay');
-  console.log(evt.target);
+  let imageOverlay = evt.target.lastElementChild;
+  imageOverlay.classList.remove('hide');
 }
 
-imgContainers.forEach(container => {
-  //Somewhat janky: anchor tags also have image-container class, so we skip these
-  //since then overlays would double up and overlap.
-  if (container.nodeName !== 'A'){
-    container.addEventListener('mouseenter', removeOverlay);
-    container.addEventListener('mouseleave', addOverlay);
-  }
-});
+for (let container of imageContainers){
+  container.addEventListener('mouseenter', removeOverlay);
+  container.addEventListener('mouseleave', addOverlay);
+}
+
+
+// imageOverlays.forEach(container => {
+//   //Somewhat janky: anchor tags also have image-container class, so we skip these
+//   //since then overlays would double up and overlap.
+//   if (container.nodeName !== 'A'){
+//     container.addEventListener('mouseenter', removeOverlay);
+//     container.addEventListener('mouseleave', addOverlay);
+//   }
+// });
