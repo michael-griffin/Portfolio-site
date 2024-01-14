@@ -19,7 +19,13 @@ for (link of navLinkList){
 
 window.addEventListener("load", (event) => {
   //Navbar
-  console.log("page is fully loaded");
+  // If small size, close hamburger menu.
+  if (window.innerWidth <= SMALL_NAV){
+    navLinkContainer.style.display = 'none';
+  }
+
+  // Otherwise, animate in navlinks
+  // console.log("page is fully loaded");
   navbar.classList.add('nav-loaded');
   for (let i = 0; i < navLinkList.length; i++){
     let link = navLinkList[i];
@@ -34,6 +40,7 @@ window.addEventListener("load", (event) => {
       link.style['transition-delay'] = '0ms';
     }
   }, 1000);
+
 
 
   //Hero
@@ -87,9 +94,9 @@ window.addEventListener('scroll', scrollHandler);
 //Basic idea: clicking hamburger icon should open dropdown menu
 //Dropdown CSS pre-built in media query, but still need to activate the class
 //with an on click listener
-toggleLinksIcon.addEventListener('click', openDropdown);
+toggleLinksIcon.addEventListener('click', toggleDropDown);
 
-function openDropdown(evt){
+function toggleDropDown(evt){
   //target navlinks container, switch display.
   let display = navLinkContainer.style.display;
   if (display === "none"){
